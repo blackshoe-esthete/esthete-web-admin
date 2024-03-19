@@ -26,7 +26,7 @@ export function PostDetailModal({
         className="w-screen h-screen fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-5"
         onClick={closeModal}
       >
-        <div className="grid md:grid-cols-2 gap-6 mx-auto rounded-lg pb-8 pr-9 pl-10 pt-9 bg-white w-[900px] shadow">
+        <div className="grid md:grid-cols-2 gap-6 mx-auto rounded-lg py-9 pr-9 pl-10 bg-white w-[900px] shadow">
           <div className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold">{data.photo_title}</h1>
