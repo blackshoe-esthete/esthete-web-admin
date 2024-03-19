@@ -53,8 +53,9 @@ export function Post() {
                   <p className="text-gray-600">{data.photo_description}</p>
                 </CardContent>
                 <CardFooter className="p-3 flex items-center space-x-2">
-                  <Button>삭제</Button>
-                  <Button variant="outline">반려</Button>
+                  <Button variant="destructive">삭제</Button>
+                  <Button>반려</Button>
+                  <Button variant="outline">상세</Button>
                 </CardFooter>
               </Card>
             ))}

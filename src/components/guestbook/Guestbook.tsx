@@ -37,8 +37,9 @@ export function Guestbook() {
                   </div>
                 </CardContent>
                 <CardFooter className="p-3 pt-7 flex items-center space-x-2">
-                  <Button className="ml-auto">삭제</Button>
-                  <Button variant="outline">반려</Button>
+                  <Button variant="destructive">삭제</Button>
+                  <Button>반려</Button>
+                  <Button variant="outline">상세</Button>
                 </CardFooter>
               </Card>
             ))}
