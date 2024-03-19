@@ -4,7 +4,7 @@
  */
 
 import { PostDetailType } from '@/types/post'
-import { POST_DUMMY_DATA } from '@/utils/Dummy'
+import { POST_DUMMY_DATA } from '@/utils/dummy'
 import Image from 'next/image'
 
 export function PostDetailModal({
@@ -31,20 +31,20 @@ export function PostDetailModal({
             <div className="space-y-2">
               <h1 className="text-3xl font-bold">{data.photo_title}</h1>
               <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                Photo ID: {data.photo_id}
+                사진 ID: {data.photo_id}
               </p>
               <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                Created: {data.photo_created_at}
+                작성일: {data.photo_created_at}
               </p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">Description</h2>
+              <h2 className="text-xl font-semibold">내용</h2>
               <p className="text-base leading-snug text-gray-500 dark:text-gray-400">
                 {data.photo_description}
               </p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">Photographer</h2>
+              <h2 className="text-xl font-semibold">작가</h2>
               <div className="flex items-center space-x-2">
                 <Image
                   alt="Avatar"
@@ -62,24 +62,24 @@ export function PostDetailModal({
                     @{data.photographer_nickname}
                   </p>
                   <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                    Photographer ID: {data.photographer_id}
+                    작가 ID: {data.photographer_id}
                   </p>
                 </div>
               </div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">Reports</h2>
+              <h2 className="text-xl font-semibold">신고건수</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="text-lg font-semibold">Photo</h3>
+                  <h3 className="text-lg font-semibold">사진</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {data.photo_abusing_report_count} reports
+                    {data.photo_abusing_report_count}건
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">Photographer</h3>
+                  <h3 className="text-lg font-semibold">작가</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {data.photographer_photo_abusing_report_count} reports
+                    {data.photographer_photo_abusing_report_count}건
                   </p>
                 </div>
               </div>

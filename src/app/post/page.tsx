@@ -1,5 +1,5 @@
 import { Post } from '@/components/post/Post'
-import { POST_DUMMY_DATA } from '@/utils/Dummy'
+import { POST_DUMMY_DATA } from '@/utils/dummy'
 
 export default function PostPage() {
   return (
