@@ -62,7 +62,7 @@ export function PostDetailModal({
                     @{data.photographer_nickname}
                   </p>
                   <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                    작가 ID: {data.photographer_id}
+                    ID: {data.photographer_id}
                   </p>
                 </div>
               </div>

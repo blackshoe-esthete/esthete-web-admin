@@ -45,7 +45,7 @@ export function GuestbookDetailModal({
                 {data.guestbook_content}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-4 space-y-2">
+            <div className="grid grid-cols-2 gap-5">
               <div className="space-y-2">
                 <h2 className="text-xl font-semibold">작성자</h2>
                 <div className="flex items-center space-x-2">
@@ -65,7 +65,7 @@ export function GuestbookDetailModal({
                       @{data.guestbook_author_nickname}
                     </p>
                     <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                      작성자 ID: {data.guestbook_author_id}
+                      ID: {data.guestbook_author_id}
                     </p>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export function GuestbookDetailModal({
                       @{data.photographer_nickname}
                     </p>
                     <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                      Photographer ID: {data.photographer_id}
+                      ID: {data.photographer_id}
                     </p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export function GuestbookDetailModal({
             </div>
             <div className="space-y-2">
               <h2 className="text-xl font-semibold">신고건수</h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 <div>
                   <h3 className="text-lg font-semibold">사진</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
