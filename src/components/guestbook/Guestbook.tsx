@@ -38,8 +38,8 @@ export function Guestbook({ data }: { data: GuestbookType }) {
             height={32}
           />
           <div>
-            <p className="font-semibold">{data.guestbook_author_nickname}</p>
-            <p className="text-sm text-gray-600">{data.guestbook_content}</p>
+            <p className="font-semibold text-sm">{data.guestbook_author_nickname}</p>
+            <p className="text-gray-600">{data.guestbook_content}</p>
           </div>
         </CardContent>
         <CardFooter className="p-3 pt-7 flex items-center space-x-2">
@@ -50,11 +50,7 @@ export function Guestbook({ data }: { data: GuestbookType }) {
           </Button>
         </CardFooter>
       </Card>
-      <GuestbookDetailModal
-        guestbook_id={data.guestbook_id}
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-      />
+      <GuestbookDetailModal guestbook_id={data.guestbook_id} isOpen={isModalOpen} closeModal={closeModal} />
     </>
   )
 }

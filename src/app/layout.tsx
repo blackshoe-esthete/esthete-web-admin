@@ -20,7 +20,7 @@ export default function RootLayout({
           <div className="container px-4 mx-auto">
             <nav className="flex items-center space-x-3 pl-4">
               <Link className="text-3xl font-bold" href="/post">
-                게시물
+                사진
               </Link>
               <Link className="text-3xl font-bold" href="/guestbook">
                 방명록

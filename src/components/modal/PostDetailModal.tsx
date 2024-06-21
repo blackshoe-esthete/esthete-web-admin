@@ -16,9 +16,7 @@ export function PostDetailModal({
   isOpen: boolean
   closeModal: () => void
 }) {
-  const data = POST_DUMMY_DATA.find(
-    (data) => data.photo_id === photo_id,
-  ) as PostDetailType
+  const data = POST_DUMMY_DATA.find((data) => data.photo_id === photo_id) as PostDetailType
 
   return (
     isOpen && (
@@ -26,25 +24,19 @@ export function PostDetailModal({
         className="w-screen h-screen fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-5"
         onClick={closeModal}
       >
-        <div className="grid md:grid-cols-2 gap-6 mx-auto rounded-lg py-9 pr-9 pl-10 bg-white w-[900px] shadow">
+        <div className="grid md:grid-cols-2 gap-6 mx-auto rounded-2xl py-9 pr-9 pl-10 bg-white w-[900px] shadow">
           <div className="space-y-4">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold">{data.photo_title}</h1>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                사진 ID: {data.photo_id}
-              </p>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                작성일: {data.photo_created_at}
-              </p>
+              <h1 className="text-2xl font-bold">{data.photo_title}</h1>
+              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">사진 ID: {data.photo_id}</p>
+              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">작성일: {data.photo_created_at}</p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">내용</h2>
-              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">
-                {data.photo_description}
-              </p>
+              <h2 className="text-lg font-semibold">내용</h2>
+              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">{data.photo_description}</p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">작가</h2>
+              <h2 className="text-lg font-semibold">작가</h2>
               <div className="flex items-center space-x-2">
                 <Image
                   alt="Avatar"
@@ -58,26 +50,20 @@ export function PostDetailModal({
                   width={32}
                 />
                 <div className="space-y-0.5">
-                  <p className="text-sm font-medium leading-none dark:text-gray-100">
-                    @{data.photographer_nickname}
-                  </p>
-                  <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                    ID: {data.photographer_id}
-                  </p>
+                  <p className="text-sm font-medium leading-none dark:text-gray-100">@{data.photographer_nickname}</p>
+                  <p className="text-xs leading-none text-gray-500 dark:text-gray-400">ID: {data.photographer_id}</p>
                 </div>
               </div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">신고건수</h2>
+              <h2 className="text-lg font-semibold">신고건수</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="text-lg font-semibold">사진</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {data.photo_abusing_report_count}건
-                  </p>
+                  <h3 className="font-semibold">사진</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{data.photo_abusing_report_count}건</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">작가</h3>
+                  <h3 className="font-semibold">작가</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {data.photographer_photo_abusing_report_count}건
                   </p>

@@ -16,9 +16,7 @@ export function GuestbookDetailModal({
   isOpen: boolean
   closeModal: () => void
 }) {
-  const data = GUESTBOOK_DUMMY_DATA.find(
-    (data) => data.guestbook_id === guestbook_id,
-  ) as GuestbookType
+  const data = GUESTBOOK_DUMMY_DATA.find((data) => data.guestbook_id === guestbook_id) as GuestbookType
 
   return (
     isOpen && (
@@ -26,28 +24,22 @@ export function GuestbookDetailModal({
         className="w-screen h-screen fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-5"
         onClick={closeModal}
       >
-        <div className="mx-auto rounded-lg pb-8 p-10 pb-11 bg-white w-fit shadow">
+        <div className="mx-auto rounded-3xl p-9 pb-10 bg-white w-[400px] shadow">
           <div className="space-y-4">
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold">
-                {data.guestbook_author_nickname}
-              </h1>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                방명록 ID: {data.guestbook_id}
-              </p>
+              <h1 className="text-xl font-bold">{data.guestbook_author_nickname}</h1>
+              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">방명록 ID: {data.guestbook_id}</p>
               <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
                 작성일: {data.guestbook_created_at}
               </p>
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">내용</h2>
-              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">
-                {data.guestbook_content}
-              </p>
+              <h2 className="text-lg font-semibold">내용</h2>
+              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">{data.guestbook_content}</p>
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="space-y-2">
-                <h2 className="text-xl font-semibold">작성자</h2>
+                <h2 className="text-lg font-semibold">작성자</h2>
                 <div className="flex items-center space-x-2">
                   <Image
                     alt="Avatar"
@@ -70,7 +62,7 @@ export function GuestbookDetailModal({
                   </div>
                 </div>
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <h2 className="text-xl font-semibold">작가</h2>
                 <div className="flex items-center space-x-2">
                   <Image
@@ -93,22 +85,18 @@ export function GuestbookDetailModal({
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-semibold">신고건수</h2>
+              <h2 className="text-lg font-semibold">신고건수</h2>
               <div className="grid grid-cols-2 gap-5">
                 <div>
-                  <h3 className="text-lg font-semibold">사진</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {data.guestbook_abusing_report_count}건
-                  </p>
+                  <h3 className="font-semibold">사진</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{data.guestbook_abusing_report_count}건</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">방명록</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    5건
-                  </p>
+                  <h3 className="font-semibold">방명록</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">5건</p>
                 </div>
               </div>
             </div>
