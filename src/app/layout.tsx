@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Link from 'next/link'
-import Image from 'next/image'
+import { QueryClientProvider } from '@/providers/QueryClientProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,35 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body id="root">
-        <header className="pb-4 pt-16">
-          <div className="container px-4 mx-auto">
-            <nav className="flex items-center space-x-3 pl-4">
-              <Link className="text-3xl font-bold" href="/post">
-                사진
-              </Link>
-              <Link className="text-3xl font-bold" href="/guestbook">
-                방명록
-              </Link>
-              <div className="flex-1" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-7 h-7 cursor-pointer"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-              <div className="w-[2px]" />
-            </nav>
-          </div>
-        </header>
-        {children}
+        <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
   )

@@ -28,12 +28,12 @@ export function PostDetailModal({
           <div className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-2xl font-bold">{data.photo_title}</h1>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">사진 ID: {data.photo_id}</p>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">작성일: {data.photo_created_at}</p>
+              <p className="text-sm leading-none text-gray-500">사진 ID: {data.photo_id}</p>
+              <p className="text-sm leading-none text-gray-500">작성일: {data.photo_created_at}</p>
             </div>
             <div className="space-y-2">
               <h2 className="text-lg font-semibold">내용</h2>
-              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">{data.photo_description}</p>
+              <p className="text-base leading-snug text-gray-500">{data.photo_description}</p>
             </div>
             <div className="space-y-2">
               <h2 className="text-lg font-semibold">작가</h2>
@@ -50,8 +50,8 @@ export function PostDetailModal({
                   width={32}
                 />
                 <div className="space-y-0.5">
-                  <p className="text-sm font-medium leading-none dark:text-gray-100">@{data.photographer_nickname}</p>
-                  <p className="text-xs leading-none text-gray-500 dark:text-gray-400">ID: {data.photographer_id}</p>
+                  <p className="text-sm font-medium leading-none">@{data.photographer_nickname}</p>
+                  <p className="text-xs leading-none text-gray-500">ID: {data.photographer_id}</p>
                 </div>
               </div>
             </div>
@@ -60,13 +60,11 @@ export function PostDetailModal({
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h3 className="font-semibold">사진</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{data.photo_abusing_report_count}건</p>
+                  <p className="text-sm text-gray-500">{data.photo_abusing_report_count}건</p>
                 </div>
                 <div>
                   <h3 className="font-semibold">작가</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    {data.photographer_photo_abusing_report_count}건
-                  </p>
+                  <p className="text-sm text-gray-500">{data.photographer_photo_abusing_report_count}건</p>
                 </div>
               </div>
             </div>
@@ -74,7 +72,7 @@ export function PostDetailModal({
           <div className="space-y-4 flex items-center">
             <Image
               alt="Photo"
-              className="aspect-3/2 object-cover rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 dark:border-gray-800"
+              className="aspect-3/2 object-cover rounded-lg overflow-hidden border border-gray-200"
               height={533}
               src={data.photo_url}
               width={800}

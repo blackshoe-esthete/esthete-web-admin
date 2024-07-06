@@ -28,14 +28,12 @@ export function GuestbookDetailModal({
           <div className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-xl font-bold">{data.guestbook_author_nickname}</h1>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">방명록 ID: {data.guestbook_id}</p>
-              <p className="text-sm leading-none text-gray-500 dark:text-gray-400">
-                작성일: {data.guestbook_created_at}
-              </p>
+              <p className="text-sm leading-none text-gray-500">방명록 ID: {data.guestbook_id}</p>
+              <p className="text-sm leading-none text-gray-500">작성일: {data.guestbook_created_at}</p>
             </div>
             <div className="space-y-2">
               <h2 className="text-lg font-semibold">내용</h2>
-              <p className="text-base leading-snug text-gray-500 dark:text-gray-400">{data.guestbook_content}</p>
+              <p className="text-base leading-snug text-gray-500">{data.guestbook_content}</p>
             </div>
             <div className="grid grid-cols-2 gap-5">
               <div className="space-y-2">
@@ -53,12 +51,8 @@ export function GuestbookDetailModal({
                     width={32}
                   />
                   <div className="space-y-0.5">
-                    <p className="text-sm font-medium leading-none dark:text-gray-100">
-                      @{data.guestbook_author_nickname}
-                    </p>
-                    <p className="text-xs leading-none text-gray-500 dark:text-gray-400">
-                      ID: {data.guestbook_author_id}
-                    </p>
+                    <p className="text-sm font-medium leading-none">@{data.guestbook_author_nickname}</p>
+                    <p className="text-xs leading-none text-gray-500">ID: {data.guestbook_author_id}</p>
                   </div>
                 </div>
               </div>
@@ -92,11 +86,11 @@ export function GuestbookDetailModal({
               <div className="grid grid-cols-2 gap-5">
                 <div>
                   <h3 className="font-semibold">사진</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{data.guestbook_abusing_report_count}건</p>
+                  <p className="text-sm text-gray-500">{data.guestbook_abusing_report_count}건</p>
                 </div>
                 <div>
                   <h3 className="font-semibold">방명록</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">5건</p>
+                  <p className="text-sm text-gray-500">5건</p>
                 </div>
               </div>
             </div>
