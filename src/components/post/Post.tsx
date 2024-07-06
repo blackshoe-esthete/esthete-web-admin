@@ -9,9 +9,12 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useState } from 'react'
 import { PostDetailModal } from '../modal/PostDetailModal'
-import { type PostDetailType } from '@/types/post'
+import { IPost } from '@/types/post'
 
-export function Post({ data }: { data: PostDetailType }) {
+const dummyThumbnail = 'https://picsum.photos/400/225'
+const dummyProfile = 'https://picsum.photos/32'
+
+export function Post({ data }: { data: IPost }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   function openModal() {
@@ -31,21 +34,23 @@ export function Post({ data }: { data: PostDetailType }) {
               alt="Avatar"
               className="rounded-full w-10 h-10"
               height={32}
-              src={data.photographer_profile_img}
+              // src={data.profile_img_url}
+              src={dummyProfile}
               style={{
                 aspectRatio: '32/32',
                 objectFit: 'cover',
               }}
               width={32}
             />
-            <p className="font-semibold">{data.photographer_nickname}</p>
+            <p className="font-semibold">{data.nickname}</p>
           </div>
           <div className="aspect-[16/9] overflow-hidden rounded-lg">
             <Image
               alt="Photo"
               className="object-cover w-full h-full"
               height={113}
-              src={data.photo_url}
+              // src={data.photo_img_url}
+              src={dummyThumbnail}
               style={{
                 aspectRatio: '200/113',
                 objectFit: 'cover',
@@ -55,8 +60,8 @@ export function Post({ data }: { data: PostDetailType }) {
           </div>
         </CardHeader>
         <CardContent className="px-3 py-2">
-          <p className="text-lg font-semibold mb-1">{data.photo_title}</p>
-          <p className="text-gray-600">{data.photo_description}</p>
+          <p className="text-lg font-semibold mb-1">{data.exhibition_title}</p>
+          <p className="text-gray-600">{data.description}</p>
         </CardContent>
         <CardFooter className="p-3 flex items-center space-x-2">
           <Button variant="destructive">삭제</Button>
@@ -66,11 +71,7 @@ export function Post({ data }: { data: PostDetailType }) {
           </Button>
         </CardFooter>
       </Card>
-      <PostDetailModal
-        photo_id={data.photo_id}
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-      />
+      <PostDetailModal photo_id={data.photo_id} isOpen={isModalOpen} closeModal={closeModal} />
     </>
   )
 }

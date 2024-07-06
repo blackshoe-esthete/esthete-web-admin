@@ -3,9 +3,14 @@
  * @see https://v0.dev/t/9TlqT0rNOcL
  */
 
-import { PostDetailType } from '@/types/post'
-import { POST_DUMMY_DATA } from '@/utils/dummy'
+import { getPhoto } from '@/api/photo'
+import { IPost, IPostDetail } from '@/types/post'
+import { UseQueryResult, useQuery } from '@tanstack/react-query'
+import Error from 'next/error'
 import Image from 'next/image'
+
+const dummyThumbnail = 'https://picsum.photos/400/225'
+const dummyProfile = 'https://picsum.photos/32'
 
 export function PostDetailModal({
   photo_id,
@@ -16,7 +21,11 @@ export function PostDetailModal({
   isOpen: boolean
   closeModal: () => void
 }) {
-  const data = POST_DUMMY_DATA.find((data) => data.photo_id === photo_id) as PostDetailType
+  const { data }: UseQueryResult<IPostDetail> = useQuery({
+    queryKey: ['photo', photo_id],
+    queryFn: () => getPhoto(photo_id),
+    enabled: isOpen,
+  })
 
   return (
     isOpen && (
@@ -27,13 +36,13 @@ export function PostDetailModal({
         <div className="grid md:grid-cols-2 gap-6 mx-auto rounded-2xl py-9 pr-9 pl-10 bg-white w-[900px] shadow">
           <div className="space-y-4">
             <div className="space-y-2">
-              <h1 className="text-2xl font-bold">{data.photo_title}</h1>
-              <p className="text-sm leading-none text-gray-500">사진 ID: {data.photo_id}</p>
-              <p className="text-sm leading-none text-gray-500">작성일: {data.photo_created_at}</p>
+              <h1 className="text-2xl font-bold">{data?.exhibition_title}</h1>
+              <p className="text-sm leading-none text-gray-500">사진 ID: {data?.photo_id}</p>
+              <p className="text-sm leading-none text-gray-500">작성일: {data?.created_at}</p>
             </div>
             <div className="space-y-2">
               <h2 className="text-lg font-semibold">내용</h2>
-              <p className="text-base leading-snug text-gray-500">{data.photo_description}</p>
+              <p className="text-base leading-snug text-gray-500">{data?.description}</p>
             </div>
             <div className="space-y-2">
               <h2 className="text-lg font-semibold">작가</h2>
@@ -42,7 +51,8 @@ export function PostDetailModal({
                   alt="Avatar"
                   className="rounded-full"
                   height={32}
-                  src={data.photographer_profile_img}
+                  // src={data!.profile_img_url}
+                  src={dummyProfile}
                   style={{
                     aspectRatio: '32/32',
                     objectFit: 'cover',
@@ -50,8 +60,8 @@ export function PostDetailModal({
                   width={32}
                 />
                 <div className="space-y-0.5">
-                  <p className="text-sm font-medium leading-none">@{data.photographer_nickname}</p>
-                  <p className="text-xs leading-none text-gray-500">ID: {data.photographer_id}</p>
+                  <p className="text-sm font-medium leading-none">@{data?.nickname}</p>
+                  <p className="text-xs leading-none text-gray-500">ID: {data?.writer_id}</p>
                 </div>
               </div>
             </div>
@@ -60,11 +70,11 @@ export function PostDetailModal({
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h3 className="font-semibold">사진</h3>
-                  <p className="text-sm text-gray-500">{data.photo_abusing_report_count}건</p>
+                  <p className="text-sm text-gray-500">{data?.photo_report_received_count}건</p>
                 </div>
                 <div>
                   <h3 className="font-semibold">작가</h3>
-                  <p className="text-sm text-gray-500">{data.photographer_photo_abusing_report_count}건</p>
+                  <p className="text-sm text-gray-500">{data?.user_report_received_count}건</p>
                 </div>
               </div>
             </div>
@@ -74,7 +84,8 @@ export function PostDetailModal({
               alt="Photo"
               className="aspect-3/2 object-cover rounded-lg overflow-hidden border border-gray-200"
               height={533}
-              src={data.photo_url}
+              // src={data!.photo_img_url}
+              src={dummyThumbnail}
               width={800}
             />
           </div>
