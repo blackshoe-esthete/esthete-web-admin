@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { QueryClientProvider } from '@/providers/QueryClientProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body id="root">
-        <QueryClientProvider>{children}</QueryClientProvider>
-      </body>
+      <body id="root">{children}</body>
     </html>
   )
 }

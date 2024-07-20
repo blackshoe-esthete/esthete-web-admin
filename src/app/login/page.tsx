@@ -2,10 +2,7 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { useMutation } from '@tanstack/react-query'
-import { postLogin } from '@/api/login'
-import { AxiosError } from 'axios'
-import Cookies from 'js-cookie'
+import { loginAction } from '@/api/login'
 import { useRouter } from 'next/navigation'
 
 const LoginPage = () => {
@@ -14,27 +11,10 @@ const LoginPage = () => {
   const [password, setPassword] = React.useState('')
 
   // useMutation의 제네릭 타입을 단순화
-  const mutation = useMutation<{ admin_id: string; jwt: string }, AxiosError, { email: string; password: string }>({
-    mutationFn: postLogin,
-    onSuccess: (data) => {
-      console.log('onSuccess data:', data)
-      Cookies.set('esthete_admin', data.jwt, {
-        expires: 1, // 1일 후에 쿠키 만료 (일 단위)
-        // secure: true, // HTTPS를 통해서만 전송
-        // sameSite: 'Strict', // CSRF 방지를 위한 설정
-      })
-      alert('로그인 성공!')
-      router.push('/post')
-    },
-    onError: (error) => {
-      console.error('Login failed:', error)
-      // alert(`Login failed: ${error.message}`)
-    },
-  })
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    mutation.mutate({ email, password })
+    await loginAction({ email, password })
+    router.push('/post')
   }
 
   return (

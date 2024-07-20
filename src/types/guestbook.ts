@@ -1,12 +1,20 @@
-export interface GuestbookType {
-  guestbook_id: string
-  photographer_id: string
-  photographer_nickname: string
-  photographer_profile_img: string
-  guestbook_author_id: string
-  guestbook_author_nickname: string
-  guestbook_author_profile_img: string
-  guestbook_content: string
-  guestbook_created_at: string
-  guestbook_abusing_report_count: number | null
+export interface IGuestbook {
+  comment_id: string
+  writer_id: string
+  nickname: string
+  profile_img_url: string
+  description: string
+  comment_content: string
+}
+
+export interface IGuestbookDetail extends IGuestbook {
+  comment_id: string
+  created_at: string // ISO 날짜 형식
+  reported_at: string // ISO 날짜 형식
+  description: string
+  profile_img_url: string
+  nickname: string
+  writer_id: string
+  user_report_received_count: number
+  comment_content: string
 }

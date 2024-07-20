@@ -1,9 +1,23 @@
+'use server'
+
+import { cookies } from 'next/headers'
 import { instance } from './instance'
 
-export const postLogin = async (data: { email: string; password: string }) => {
-  const response = await instance.post('/admin/login', data)
-  if (response.status !== 200) {
-    throw new Error('로그인에 실패했습니다.')
-  }
-  return response.data
+export async function loginAction(data: { email: string; password: string }) {
+  const response = await instance('/admin/login', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+
+  cookies().set('esthete_admin', response.jwt, {
+    maxAge: 60 * 60 * 24 * 7, // 7일
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+  })
+
+  return response
 }

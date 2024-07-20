@@ -4,15 +4,37 @@
  */
 'use client'
 
-import { CardHeader, CardContent, CardFooter, Card } from '@/components/ui/card'
+import { CardContent, CardFooter, Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import { GuestbookType } from '@/types/guestbook'
+import { IGuestbook, IGuestbookDetail } from '@/types/guestbook'
 import { useState } from 'react'
 import { GuestbookDetailModal } from '../modal/GuestbookDetailModal'
+import { deleteGuestbook, rejectGuestbook } from '@/api/guestbook'
 
-export function Guestbook({ data }: { data: GuestbookType }) {
+const dummyProfile = 'https://picsum.photos/32'
+
+export function Guestbook({ data, detailData }: { data: IGuestbook; detailData: IGuestbookDetail }) {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  async function handleDelete() {
+    const confirm = window.confirm('삭제하시겠습니까?')
+    if (!confirm) return
+    setIsLoading(true)
+    await deleteGuestbook(data.comment_id)
+    alert('삭제되었습니다.')
+    setIsLoading(false)
+  }
+
+  async function handleReject() {
+    const confirm = window.confirm('반려하시겠습니까?')
+    if (!confirm) return
+    setIsLoading(true)
+    await rejectGuestbook(data.comment_id)
+    alert('반려되었습니다.')
+    setIsLoading(false)
+  }
 
   function openModal() {
     setIsModalOpen(true)
@@ -24,12 +46,13 @@ export function Guestbook({ data }: { data: GuestbookType }) {
 
   return (
     <>
-      <Card key={data.guestbook_author_id} className="p-2">
+      <Card key={data.writer_id} className="p-2">
         <CardContent className="p-3 flex space-x-4">
           <Image
             alt="Avatar"
             className="rounded-full w-10 h-10"
-            src={data.guestbook_author_profile_img}
+            // src={data.profile_img_url}
+            src={dummyProfile}
             style={{
               aspectRatio: '32/32',
               objectFit: 'cover',
@@ -38,19 +61,23 @@ export function Guestbook({ data }: { data: GuestbookType }) {
             height={32}
           />
           <div>
-            <p className="font-semibold text-sm">{data.guestbook_author_nickname}</p>
-            <p className="text-gray-600">{data.guestbook_content}</p>
+            <p className="font-semibold text-sm">{data.nickname}</p>
+            <p className="text-gray-600">{data.comment_content}</p>
           </div>
         </CardContent>
         <CardFooter className="p-3 pt-7 flex items-center space-x-2">
-          <Button variant="destructive">삭제</Button>
-          <Button>반려</Button>
+          <Button variant="destructive" onClick={handleDelete} disabled={isLoading}>
+            {isLoading ? '처리 중...' : '삭제'}
+          </Button>
+          <Button onClick={handleReject} disabled={isLoading}>
+            {isLoading ? '처리 중...' : '반려'}
+          </Button>
           <Button variant="outline" onClick={openModal}>
             상세
           </Button>
         </CardFooter>
       </Card>
-      <GuestbookDetailModal guestbook_id={data.guestbook_id} isOpen={isModalOpen} closeModal={closeModal} />
+      <GuestbookDetailModal guestbookData={detailData} isOpen={isModalOpen} closeModal={closeModal} />
     </>
   )
 }
