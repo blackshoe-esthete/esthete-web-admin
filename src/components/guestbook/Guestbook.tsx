@@ -77,7 +77,14 @@ export function Guestbook({ data, detailData }: { data: IGuestbook; detailData: 
           </Button>
         </CardFooter>
       </Card>
-      <GuestbookDetailModal guestbookData={detailData} isOpen={isModalOpen} closeModal={closeModal} />
+      <GuestbookDetailModal
+        guestbookData={detailData}
+        isOpen={isModalOpen}
+        isLoading={isLoading}
+        handleDelete={handleDelete}
+        handleReject={handleReject}
+        closeModal={closeModal}
+      />
     </>
   )
 }

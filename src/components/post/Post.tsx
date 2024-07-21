@@ -93,7 +93,14 @@ export function Post({ data, detailData }: { data: IPost; detailData: IPostDetai
           </Button>
         </CardFooter>
       </Card>
-      <PostDetailModal photoData={detailData} isOpen={isModalOpen} closeModal={closeModal} />
+      <PostDetailModal
+        photoData={detailData}
+        isOpen={isModalOpen}
+        isLoading={isLoading}
+        handleDelete={handleDelete}
+        handleReject={handleReject}
+        closeModal={closeModal}
+      />
     </>
   )
 }

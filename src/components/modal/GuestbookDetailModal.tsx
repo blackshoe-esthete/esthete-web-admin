@@ -2,17 +2,24 @@
 
 import { IGuestbookDetail } from '@/types/guestbook'
 import Image from 'next/image'
+import { Button } from '../ui/button'
 
 const dummyProfile = 'https://picsum.photos/32'
 
 export function GuestbookDetailModal({
   guestbookData,
   isOpen,
+  isLoading,
   closeModal,
+  handleDelete,
+  handleReject,
 }: {
   guestbookData: IGuestbookDetail
   isOpen: boolean
+  isLoading: boolean
   closeModal: () => void
+  handleDelete: () => void
+  handleReject: () => void
 }) {
   console.log(guestbookData)
   return (
@@ -21,11 +28,11 @@ export function GuestbookDetailModal({
         className="w-screen h-screen fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-5"
         onClick={closeModal}
       >
-        <div className="mx-auto rounded-3xl p-9 pb-10 bg-white w-[400px] shadow">
+        <div className="mx-auto rounded-2xl p-9 pb-8 bg-white w-[400px] shadow">
           <div className="space-y-4 w-max">
             <div className="space-y-2">
               <h1 className="text-xl font-bold">{guestbookData?.description}</h1>
-              <p className="text-sm leading-none text-gray-500">방명록 ID: {guestbookData?.comment_id}</p>
+              <p className="text-sm leading-none text-gray-500">ID: {guestbookData?.comment_id}</p>
               <p className="text-sm leading-none text-gray-500">작성일: {guestbookData?.created_at}</p>
             </div>
             <div className="space-y-2">
@@ -87,6 +94,14 @@ export function GuestbookDetailModal({
                 </div>
               </div>
             </div>
+          </div>
+          <div className="flex gap-1 justify-end mt-3">
+            <Button variant="destructive" onClick={handleDelete} disabled={isLoading}>
+              {isLoading ? '처리 중...' : '삭제'}
+            </Button>
+            <Button onClick={handleReject} disabled={isLoading}>
+              {isLoading ? '처리 중...' : '반려'}
+            </Button>
           </div>
         </div>
       </div>

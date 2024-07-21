@@ -2,6 +2,7 @@
 
 import { IPostDetail } from '@/types/post'
 import Image from 'next/image'
+import { Button } from '../ui/button'
 
 const dummyThumbnail = 'https://picsum.photos/400/225'
 const dummyProfile = 'https://picsum.photos/32'
@@ -9,11 +10,17 @@ const dummyProfile = 'https://picsum.photos/32'
 export function PostDetailModal({
   photoData,
   isOpen,
+  isLoading,
   closeModal,
+  handleDelete,
+  handleReject,
 }: {
   photoData: IPostDetail
   isOpen: boolean
+  isLoading: boolean
   closeModal: () => void
+  handleDelete: () => void
+  handleReject: () => void
 }) {
   if (!isOpen) return null
 
@@ -78,6 +85,14 @@ export function PostDetailModal({
               src={dummyThumbnail}
               width={800}
             />
+          </div>
+          <div className="md:col-start-2 ml-auto flex gap-1">
+            <Button variant="destructive" onClick={handleDelete} disabled={isLoading}>
+              {isLoading ? '처리 중...' : '삭제'}
+            </Button>
+            <Button onClick={handleReject} disabled={isLoading}>
+              {isLoading ? '처리 중...' : '반려'}
+            </Button>
           </div>
         </div>
       </div>
