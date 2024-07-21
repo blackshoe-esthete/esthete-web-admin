@@ -1,3 +1,5 @@
+'use server'
+
 import { revalidatePath } from 'next/cache'
 import { instance } from './instance'
 
@@ -19,7 +21,7 @@ export const deleteGuestbook = async (comment_id: string) => {
     method: 'DELETE',
   })
   revalidatePath('/guestbook')
-  return response // 200 상태 코드는 fetchWithAuth에서 처리됨
+  return response
 }
 
 // 방명록 삭제 요청 반려
@@ -28,5 +30,5 @@ export const rejectGuestbook = async (comment_id: string) => {
     method: 'DELETE',
   })
   revalidatePath('/guestbook')
-  return response // 200 상태 코드는 fetchWithAuth에서 처리됨
+  return response
 }
