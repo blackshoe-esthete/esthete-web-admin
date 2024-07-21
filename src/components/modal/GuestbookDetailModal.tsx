@@ -22,7 +22,7 @@ export function GuestbookDetailModal({
         onClick={closeModal}
       >
         <div className="mx-auto rounded-3xl p-9 pb-10 bg-white w-[400px] shadow">
-          <div className="space-y-4">
+          <div className="space-y-4 w-max">
             <div className="space-y-2">
               <h1 className="text-xl font-bold">{guestbookData?.description}</h1>
               <p className="text-sm leading-none text-gray-500">방명록 ID: {guestbookData?.comment_id}</p>
