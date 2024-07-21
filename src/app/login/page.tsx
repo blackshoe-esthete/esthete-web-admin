@@ -4,6 +4,7 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { loginAction } from '@/api/login'
 import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 const LoginPage = () => {
   const router = useRouter()

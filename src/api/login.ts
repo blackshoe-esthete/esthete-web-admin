@@ -14,9 +14,6 @@ export async function loginAction(data: { email: string; password: string }) {
 
   cookies().set('esthete_admin', response.jwt, {
     maxAge: 60 * 60 * 24 * 7, // 7일
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
   })
 
   return response

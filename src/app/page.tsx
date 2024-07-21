@@ -2,14 +2,15 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
     // admin 쿠키 값 가져오기
-    const cookies = document.cookie.split('; ')
-    const adminCookie = cookies.find((cookie) => cookie.startsWith('esthete_admin='))?.split('=')[1]
+    const cookies = Cookies.get()
+    const adminCookie = cookies.esthete_admin
 
     if (adminCookie) {
       router.push('/post')

@@ -28,6 +28,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@radix-ui/react-icons", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:1.3.0"],\
           ["@radix-ui/react-slot", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:1.0.2"],\
+          ["@types/js-cookie", "npm:3.0.6"],\
           ["@types/node", "npm:20.11.28"],\
           ["@types/prop-types", "npm:15.7.11"],\
           ["@types/react", "npm:18.2.67"],\
@@ -40,6 +41,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:14.1.3"],\
           ["eslint-config-prettier", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:5.1.3"],\
+          ["js-cookie", "npm:3.0.5"],\
           ["lucide-react", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:0.359.0"],\
           ["next", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:14.1.3"],\
           ["postcss", "npm:8.4.36"],\
@@ -504,6 +506,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@swc/helpers", "npm:0.5.2"],\
           ["tslib", "npm:2.6.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/js-cookie", [\
+      ["npm:3.0.6", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-js-cookie-npm-3.0.6-c9126e5b48-10c0.zip/node_modules/@types/js-cookie/",\
+        "packageDependencies": [\
+          ["@types/js-cookie", "npm:3.0.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1056,6 +1067,7 @@ const RAW_RUNTIME_STATE =
           ["blackshoes-admin", "workspace:."],\
           ["@radix-ui/react-icons", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:1.3.0"],\
           ["@radix-ui/react-slot", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:1.0.2"],\
+          ["@types/js-cookie", "npm:3.0.6"],\
           ["@types/node", "npm:20.11.28"],\
           ["@types/prop-types", "npm:15.7.11"],\
           ["@types/react", "npm:18.2.67"],\
@@ -1068,6 +1080,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-config-next", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:14.1.3"],\
           ["eslint-config-prettier", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:9.1.0"],\
           ["eslint-plugin-prettier", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:5.1.3"],\
+          ["js-cookie", "npm:3.0.5"],\
           ["lucide-react", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:0.359.0"],\
           ["next", "virtual:6908a57b9be1d9155e566c96e90e641f1fc2880eb6f94b292f59f9722ae9dcec357c653d28dd380148725cbaa49f266ef5a24106ca7fe07799d9ea68fc353de3#npm:14.1.3"],\
           ["postcss", "npm:8.4.36"],\
@@ -3117,6 +3130,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/jiti-npm-1.21.0-baebd5985a-10c0.zip/node_modules/jiti/",\
         "packageDependencies": [\
           ["jiti", "npm:1.21.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["js-cookie", [\
+      ["npm:3.0.5", {\
+        "packageLocation": "../../../.yarn/berry/cache/js-cookie-npm-3.0.5-8fc8fcc9b4-10c0.zip/node_modules/js-cookie/",\
+        "packageDependencies": [\
+          ["js-cookie", "npm:3.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
