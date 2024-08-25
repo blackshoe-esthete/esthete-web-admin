@@ -44,4 +44,4 @@ const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   }
 }
 
-export const instance = fetchWithAuth;
+export const instance = fetchWithAuth

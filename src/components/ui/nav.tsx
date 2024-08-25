@@ -18,6 +18,12 @@ const Nav = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement
       >
         방명록
       </Link>
+      <Link
+        className={clsx('text-3xl font-bold', { 'border-b-2 border-black': pathname === '/privacy-policy' })}
+        href="/privacy-policy"
+      >
+        정보
+      </Link>
       <div className="flex-1" />
       {/* <svg
         xmlns="http://www.w3.org/2000/svg"
